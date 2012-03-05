@@ -33,7 +33,7 @@ dime.is('deviceH', 480, 960) // equiv to (dime.deviceH() >= 480 && dime.deviceH(
 dime(elem) // wrapper for element-based methods (accepts native DOM elements, document, or window)
 dime(elem).rectangle() // cross-browser getBoundingClientRect (.top/.bottom/.left/.right/.width/.height)
 dime(elem).offset() // coordinates relative to the document (.top/.bottom/.left/.right/.width/.height)
-dime(elem).get(index) // applicable when dime is paired with a query engine (index -1 gets the last elem)
+dime(elem).get(index) // applicable when dime is paired w/ a query engine (index -1 gets the last elem)
 dime(elem).element() // if elem (index 0) is a DOM element, get it. Otherwise get the documentElement.
 
 ```
