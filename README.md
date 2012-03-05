@@ -1,11 +1,13 @@
-[dime](https://github.com/ryanve/dime) is an ultra-fast cross-browser micro-library for calculating dimensions, using pure native JavaScript methods.
+[dime](https://github.com/ryanve/dime) is an ultra-fast open-source cross-browser micro-library for calculating dimensions, using pure native JavaScript methods.
+
+## API
 
 ### Properties
 
 ```javascript
 
-dime.deviceW     // device width  property
-dime.deviceH     // device height property
+dime.deviceW     // device width
+dime.deviceH     // device height
 dime.deviceMax   // calculated Math.max(dime.deviceW, dime.deviceH)
 dime.deviceMin   // calculated Math.min(dime.deviceW, dime.deviceH)
 
@@ -30,7 +32,7 @@ dime.is('deviceH', 480, 960) // equiv to (dime.deviceH() >= 480 && dime.deviceH(
 
 dime(elem) // wrapper for element-based methods (accepts native DOM elements, document, or window)
 dime(elem).rectangle() // cross-browser getBoundingClientRect (.top/.bottom/.left/.right/.width/.height)
-dime(elem).offset() // get coordinates relative to the document (.top/.bottom/.left/.right/.width/.height)
+dime(elem).offset() // coordinates relative to the document (.top/.bottom/.left/.right/.width/.height)
 dime(elem).get(index) // applicable when dime is paired with a query engine (index -1 gets the last elem)
 dime(elem).element() // if elem (index 0) is a DOM element, get it. Otherwise get the documentElement.
 
@@ -71,4 +73,26 @@ true === dimeElem.dime; // true if it exists *or* if it doesn't
 
 ```
 
+## License
 
+### [dime](https://github.com/ryanve/dime) is available under the [MIT license](http://en.wikipedia.org/wiki/MIT_License)
+
+Copyright (C) 2012 by [Ryan Van Etten](https://github.com/ryanve)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
