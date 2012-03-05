@@ -31,8 +31,8 @@ dime.is('deviceH', 480, 960) // equiv to (dime.deviceH() >= 480 && dime.deviceH(
 // ... works for any of the props/methods listed above
 
 dime(elem) // wrapper for element-based methods (accepts native DOM elements, document, or window)
-dime(elem).rectangle() // cross-browser getBoundingClientRect (.top/.bottom/.left/.right/.width/.height)
-dime(elem).offset() // coordinates relative to the document (.top/.bottom/.left/.right/.width/.height)
+dime(elem).rectangle() // cross-browser getBoundingClientRect: .top/.bottom/.left/.right/.width/.height
+dime(elem).offset() // coordinates relative to the document: .top/.bottom/.left/.right/.width/.height
 dime(elem).get(index) // applicable when dime is paired w/ a query engine (index -1 gets the last elem)
 dime(elem).element() // if elem (index 0) is a DOM element, get it. Otherwise get the documentElement.
 
@@ -66,7 +66,7 @@ The result of calling the dime() function is an array-like object. It has a leng
 var elem, dimeElem;
 elem = document.getElementById("example");
 dimeElem = dime(elem);
-!!dimeElem.length;          // true if #example exists
+!!dimeElem.length;      // true if #example exists
 1 === dimeElem.length;  // true if #example exists
 elem === dimeElem[0];   // true if #example exists (otherwise false)
 true === dimeElem.dime; // true if it exists *or* if it doesn't
