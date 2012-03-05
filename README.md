@@ -66,12 +66,17 @@ The result of calling the dime() function is an array-like object. It has a leng
 var elem, dimeElem;
 elem = document.getElementById("example");
 dimeElem = dime(elem);
-!!dime.length;          // true if #example exists
+!!dimeElem.length;          // true if #example exists
 1 === dimeElem.length;  // true if #example exists
 elem === dimeElem[0];   // true if #example exists (otherwise false)
 true === dimeElem.dime; // true if it exists *or* if it doesn't
 
 ```
+
+### Projects
+
+Much of [dime](https://github.com/ryanve/dime) is also built into [Response](https://github.com/ryanve/response.js) 0.3+
+
 
 ## License
 
