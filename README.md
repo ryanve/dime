@@ -40,7 +40,7 @@ dime(elem).element() // if elem (index 0) is a DOM element, get it. Otherwise ge
 
 ### Extending
 
-Devs can add a query engine such as [qwery](https://github.com/ded/qwery) to provide the ability query selector strings like `dime('#example')`
+Devs can add a query engine such as [qwery](https://github.com/ded/qwery) to provide the ability to query selector strings like `dime('#example')`
 
 ```javascript
 
