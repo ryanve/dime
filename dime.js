@@ -3,7 +3,7 @@
  * @author    Ryan Van Etten (c) 2012
  * @link      http://github.com/ryanve/dime
  * @license   MIT
- * @version   1.0.0
+ * @version   1.0.1
  */
 
 !(function (name, definition) {
@@ -95,6 +95,7 @@
          */
         
       , setQueryEngine: function(e) {
+              // Inspired by bonzo.setQueryEngine @link github.com/ded/bonzo
             if (!arguments.length && !queryEngine) {
                 queryEngine = win.$;
             }
@@ -105,6 +106,8 @@
         }
         
       , element: function() {
+            // Get the element in index 0 or the docElem if index 0 is not an element. This is used
+            // in methods that require an element (to make sure we're always dealing w/ an element).
             var el = this[0];
             return 1 === el.nodeType ? el : html;
         }
@@ -132,26 +135,32 @@
       , deviceMin: Math.min(screen.width, screen.height)
           
       , viewportW: function() {
+            // responsejs.com/labs/dimensions/#viewport
             return html.clientWidth; 
         }
             
       , viewportH: function() {
+            // responsejs.com/labs/dimensions/#viewport
             return html.clientHeight; 
         }
             
-      , documentW: function() { 
-            return Math.max(html.clientWidth, html.offsetWidth, html.scrollWidth, doc.body.scrollWidth);
+      , documentW: function() {
+            // responsejs.com/labs/dimensions/#document
+            return Math.max(html.offsetWidth, html.scrollWidth, doc.body.scrollWidth);
         }
             
       , documentH: function() {
-            return Math.max(html.clientHeight, html.offsetHeight, html.scrollHeight, doc.body.scrollHeight);
+            // responsejs.com/labs/dimensions/#document
+            return Math.max(html.offsetHeight, html.scrollHeight, doc.body.scrollHeight);
         }
 
       , scrollX: function() {
+            // developer.mozilla.org/en/DOM/window.scrollX
             return win.pageXOffset || html.scrollLeft; 
         }
         
       , scrollY: function() {
+            // developer.mozilla.org/en/DOM/window.scrollY
             return win.pageYOffset || html.scrollTop; 
         }
         
@@ -234,7 +243,7 @@
     
     return dime;
 
-})); // End of the callback and the self-invoked function.
+})); // End callback and closure.
 
 // Recommended videos to watch related
 // to the design patterns used in dime:
