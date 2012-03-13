@@ -3,7 +3,7 @@
  * @author    Ryan Van Etten (c) 2012
  * @link      http://github.com/ryanve/dime
  * @license   MIT
- * @version   1.0.1
+ * @version   1.1.0
  */
 
 !(function (name, definition) {
@@ -29,7 +29,12 @@
       , win = window
       , screen = win.screen
       , doc = win.document
+      , max = win.Math.max
       , html = doc.documentElement
+      , screenW = screen.width
+      , screenH = screen.height
+      , screenMax = max(screenW, screenH)
+      , screenMin = screenW + screenH - screenMax
       , queryEngine = false
     ;
     
@@ -80,9 +85,9 @@
         // are computed @link responsejs.com/labs/dimensions/
 
         dime: true // Make it easy to check for dime instances.
-        
+
       , length: 0  // Gets overwritten to 1 when dime(somethingReal) is called.
-      
+
       , selector: null // Becomes a string only if a query engine is used.
       
         /**
@@ -93,7 +98,7 @@
          * @example   dime.setQueryEngine(jQuery);       // jquery.com
          *
          */
-        
+
       , setQueryEngine: function(e) {
               // Inspired by bonzo.setQueryEngine @link github.com/ded/bonzo
             if (!arguments.length && !queryEngine) {
@@ -104,14 +109,14 @@
             }
             return !!queryEngine;
         }
-        
+
       , element: function() {
             // Get the element in index 0 or the docElem if index 0 is not an element. This is used
             // in methods that require an element (to make sure we're always dealing w/ an element).
             var el = this[0];
             return 1 === el.nodeType ? el : html;
         }
-        
+
       , get: function(index) {
             index = index || 0;
             if ( index < 0 ) {
@@ -120,38 +125,40 @@
             return dime(this[index]);
         }
 
-      , is: function(prop, min, max) {
-            var thisProp = 'string' === typeof prop ? this[prop] : false;
-            if ('function' === typeof thisProp) {
-                thisProp = thisProp();
-            }
-            return thisProp ? (thisProp >= (min || 0) && (!max || thisProp <= max)) : false;
+      , is: function(method, min, max) {
+            var type = typeof method
+              , num = 'string' === type ? dime[method]() : 'function' === type ? method() : false;
+            return 'number' === typeof num ? (num >= (min || 0) && (!max || num <= max)) : false;
         }
-        
-        // These 4 don't change so we just set them:
-      , deviceW: screen.width
-      , deviceH: screen.height
-      , deviceMax: Math.max(screen.width, screen.height)
-      , deviceMin: Math.min(screen.width, screen.height)
+
+        // responsejs.com/labs/dimensions/#device
+      , deviceW:   function() { 
+            return screenW; 
+        }
+      , deviceH:   function() {
+            return screenH; 
+        }
+      , deviceMax: function() { 
+            return screenMax; 
+        }
+      , deviceMin: function() { 
+            return screenMin; 
+        }
           
-      , viewportW: function() {
-            // responsejs.com/labs/dimensions/#viewport
+        // responsejs.com/labs/dimensions/#viewport
+      , viewportW: function() { 
             return html.clientWidth; 
         }
-            
-      , viewportH: function() {
-            // responsejs.com/labs/dimensions/#viewport
+      , viewportH: function() { 
             return html.clientHeight; 
         }
-            
+
+        // responsejs.com/labs/dimensions/#document
       , documentW: function() {
-            // responsejs.com/labs/dimensions/#document
-            return Math.max(html.offsetWidth, html.scrollWidth, doc.body.scrollWidth);
+            return max(html.offsetWidth, html.scrollWidth, doc.body.scrollWidth);
         }
-            
       , documentH: function() {
-            // responsejs.com/labs/dimensions/#document
-            return Math.max(html.offsetHeight, html.scrollHeight, doc.body.scrollHeight);
+            return max(html.offsetHeight, html.scrollHeight, doc.body.scrollHeight);
         }
 
       , scrollX: function() {
