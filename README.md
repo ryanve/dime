@@ -2,20 +2,13 @@
 
 ## API
 
-### Properties
-
-```javascript
-
-dime.deviceW     // device width
-dime.deviceH     // device height
-dime.deviceMax   // calculated Math.max(dime.deviceW, dime.deviceH)
-dime.deviceMin   // calculated Math.min(dime.deviceW, dime.deviceH)
-
-```
-
 ### Methods
 
 ```javascript
+dime.deviceW()   // get device width
+dime.deviceH()   // get device height
+dime.deviceMax() // get Math.max(dime.deviceW, dime.deviceH)
+dime.deviceMin() // get Math.min(dime.deviceW, dime.deviceH)
 dime.viewportW() // get viewport width
 dime.viewportH() // get viewport height
 dime.documentW() // get document width
@@ -25,10 +18,10 @@ dime.overflowY() // get # of vertical pixels that doc overflows viewport (or 0 i
 dime.scrollX()   // cross-broswer equiv to native window.scrollX
 dime.scrollY()   // cross-broswer equiv to native window.scrollY
 
-dime.is(propOrMeth, min [, max]) // boolean for testing ranges
+dime.is(method, min [, max]) // boolean for testing ranges
 dime.is('viewportW', 800) // equiv to (dime.viewportW() >= 800)
 dime.is('deviceH', 480, 960) // equiv to (dime.deviceH() >= 480 && dime.deviceH() <= 960)
-// ... works for any of the props/methods listed above
+// ... works for any of the methods listed above
 
 dime(elem) // wrapper for element-based methods (accepts native DOM elements, document, or window)
 dime(elem).rectangle() // cross-browser getBoundingClientRect: .top/.bottom/.left/.right/.width/.height
