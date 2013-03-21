@@ -6,10 +6,11 @@
     "author": "Ryan Van Etten <@ryanve>",
     "keywords": [
         "dimensions",
-        "viewport",
-        "device",
         "ender"
     ],
+    "dependencies" : {
+        "verge": ">= 1.6.0"
+    },
     "main": "./dime.js",
     "repository": {
         "type": "git",
