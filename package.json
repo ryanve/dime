@@ -1,7 +1,7 @@
 {
     "name": "dime",
     "description": "cross-browser module for calculating dimensions",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "homepage": "https://github.com/ryanve/dime",
     "author": "Ryan Van Etten <@ryanve>",
     "keywords": [
