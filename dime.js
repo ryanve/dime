@@ -3,7 +3,7 @@
  * @author    Ryan Van Etten (c) 2012
  * @link      http://github.com/ryanve/dime
  * @license   MIT
- * @version   2.0.1
+ * @version   2.0.2
  */
 
 /*jslint browser: true, devel: true, node: true, passfail: false, bitwise: true, continue: true
@@ -87,8 +87,8 @@
         var ob = { 'width': screenW, 'height': screenH };
         return null == name ? ob : ob[name];
     }
-	
-	/**
+    
+    /**
      * @param  {string}  name
      * @return {number}
      */
@@ -116,7 +116,6 @@
      */
     function peek(el, fn, scope) {
     
-        if (!el) { return; }
         var oPos, oVis, oDis, ret
           , tPos, tVis, tDis
           , w = el.offsetWidth
@@ -173,20 +172,10 @@
      * @param  {Array|Object}      els
      * @return {number|undefined}
      */
-	function getPx(els, name) {
-		if (els[0]) {
-            if (1 === els[0].nodeType) {
-                return peek(els[0], function(e) { 
-                    return e['offset' + capName[name]]; 
-                });
-            }
-            if (els[0] === win) { 
-                return vpGetter(name); 
-            }
-            if (els[0] === doc) { 
-                return docGetter(name); 
-            }
-        }
+    function getPx(els, name) {
+        return !(els = els[0]) ? void 0 : 1 === els.nodeType ? peek(els, function(e) {
+            return e['offset' + capName[name]]; 
+        }) : els === win ? vpGetter(name) : els === doc ? docGetter(name) : els[name]; 
     }
     
     /**
