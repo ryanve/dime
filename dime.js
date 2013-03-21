@@ -12,8 +12,8 @@
 , indent: 4, maxerr: 180 */
  
 (function(root, name, definition) {// github.com/umdjs/umd
-    if ( typeof module != 'undefined' && module.exports ) { 
-        module.exports = definition(); // node|common|ender
+    if (typeof module != 'undefined' && module['exports']) { 
+        module['exports'] = definition(); // node|common|ender
     } else { root[name] = definition(); } // browser
 }(this, 'dime', function() {
 
@@ -22,8 +22,6 @@
       , docElem = doc.documentElement
       , screenW = screen.width
       , screenH = screen.height
-      , screenMax = screenW > screenH ? screenW : screenH
-      , screenMin = screenW + screenH - screenMax
       , capName = { 'width': 'Width', 'height': 'Height' }
       , effin = {};
     
