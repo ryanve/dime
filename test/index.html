@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tests</title>
+    <style>
+        html { font-family:sans-serif; background:#efefef; color:#111; }
+        body { width:96%; margin:auto; font-size:1em; line-height:1.6; }
+        pre, code, kbd { font-family:monospace; -moz-tab-size:4; -o-tab-size:4; tab-size:4; }
+        h3 b { font-weight:700; }
+        h3, pre b { font-weight:400; }
+        pre { padding:0 .5em; white-space:pre-line; }
+        pre span { white-space:pre-wrap; }
+        pre b { color:#008080; }
+        pre small { font-size:inherit; font-family:inherit; font-weight:lighter; color:#777; }
+        kbd { display:inline-block; padding:.2em; }
+        pre kbd { padding:0; }
+        .sized { max-width:100%; min-width:1px; background:#111; color:#efefef; font-weight:600 }
+        .margin { margin:1em 0; } 
+        .border { border:2px dotted #888; } 
+        .padding { padding:1em 0; }
+        .hidden { display:none; }
+        .scroll { overflow:scroll; height:8em; width:3em; }
+    </style>
+</head>
+<body>
+    <h1>Tests</h1>
+    <h3><b>Browser:</b> Check tests in the console.</h3>
+    <h3><b>CLI:</b> Run these commands:</h3>
+    <pre>
+        <span><b>$</b> <kbd>cd</kbd> <a href="../">aok</a>       <small># Go to the package root.</small></span>
+        <span><b>$</b> <kbd>npm install</kbd>  <small># Install dependencies.</small></span>
+        <span><b>$</b> <kbd>grunt aok</kbd>    <small># Run tests.</small></span>
+    </pre>
+
+    <h3><b>Subjects:</b> see pagesource</h3>
+    <div id="visible" class="sized"><code>#visible</code></div>
+    <div id="hidden" class="sized hidden"><code>#hidden</code></div>
+    <div id="margin" class="sized margin"><code>#margin</code></div>
+    <div id="border" class="sized border"><code>#border</code></div>
+    <div id="padding" class="sized padding"><code>#padding</code></div>
+    <div id="box" class="sized margin border padding"><code>#box</code></div>
+    <div id="-border" class="sized margin padding"><code>#-border</code></div>
+    <div id="-margin" class="sized border padding"><code>#-margin</code></div>
+    <div id="-padding" class="sized border margin"><code>#-padding</code></div>
+    <div id="scroll" class="sized padding scroll"><code>#scroll 0 1 2 3 4 5 6 7 8 9 8 7 6 5 4 3 2 1</code></div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://airve.github.io/js/jeesh/jeesh.min.js"></script>
+    <script src="../src/index.js"></script>
+    <script src="../node_modules/aok/aok.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

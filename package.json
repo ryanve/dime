@@ -1,19 +1,22 @@
 {
     "name": "dime",
-    "description": "cross-browser module for calculating dimensions",
-    "version": "2.0.1",
+    "description": "cross-browser module to measure dimensions",
+    "version": "3.0.0",
     "homepage": "https://github.com/ryanve/dime",
-    "author": "Ryan Van Etten <@ryanve>",
-    "keywords": [
-        "dimensions",
-        "ender"
-    ],
-    "dependencies" : {
-        "verge": ">= 1.6.0"
-    },
+    "license": "MIT",
+    "author": "Ryan Van Etten",
+    "keywords": ["dimensions", "width", "height", "measure", "nodes", "ender", "browser"],
     "main": "./dime.js",
+    "ender": "./src/ender.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/ryanve/dime.git"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-uglify": "~0.2.4",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-jshint": "~0.6.4",
+        "aok": "~1.5"
     }
 }

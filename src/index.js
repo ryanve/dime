@@ -1,9 +1,3 @@
-/*!
- * dime 3.0.0+201311180050
- * https://github.com/ryanve/dime
- * MIT License 2013 Ryan Van Etten
- */
-
 (function(root, name, make) {
     if (typeof module != 'undefined' && module['exports']) module['exports'] = make();
     else root[name] = make();

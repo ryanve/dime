@@ -1,0 +1,1 @@
+(typeof ender == 'function' && ender.ender(require('dime'), true));

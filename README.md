@@ -1,60 +1,84 @@
-[dime](https://github.com/ryanve/dime) is cross-browser module for calculating dimensions in JavaScript.
+# [dime](../../)
+#### cross-browser JavaScript [module](https://npmjs.org/package/dime) to measure dimensions
 
-```
+```bash
 $ npm install dime
 ```
 
-# methods
+## API ([3.0](../../releases))
 
-### static
+### Static methods
+#### Fast simple top-level methods
 
-Cheap simple methods are on the top-level:
-
-```javascript
-dime.device()    // get object containing width and height
-dime.deviceW()   // get device width 
-dime.deviceH()   // get device height
-dime.viewport()  // get object containing current width and height
-dime.viewportW() // get viewport width
-dime.viewportH() // get viewport height
+```js
+dime.width(object) // get width
+dime.height(object) // get height
+dime.width(element, px) // set width
+dime.height(element, px) // set height
 ```
 
-### chain 
+#### Measurable objects
 
-jQuery-compatible-ish methods designed to be mixed into a jQuery-like lib:
+- `window`
+- DOM node: `document` or element
+- object with `.width`/`.height` properties or methods
 
-```javascript
-dime.fn.width() // get the width of the 1st elem in the set
-dime.fn.width(value) // set the width of all elems in the set
-dime.fn.height() // get the width of the 1st elem in the set
-dime.fn.height(value) // set the width of all elems in the set
+```js
+dime.width(screen) // => screen.width
+dime.width({width:10, height:10}) // => 10
 ```
 
-## related
+### Chain methods
+#### jQueryish methods for compatible libs (such as [ender](https://github.com/ender-js))
 
-- [Response](https://github.com/ryanve/response.js)
-- [verge](https://github.com/ryanve/verge)
+```js
+.width() // get the width of the 1st elem in the set
+.width(value) // set the width of all elems in the set
+.height() // get the width of the 1st elem in the set
+.height(value) // set the width of all elems in the set
+```
 
-# license
+### Integrated usage
 
-### [dime](https://github.com/ryanve/dime) is available under the [MIT license](http://en.wikipedia.org/wiki/MIT_License)
+```js
+$(window).width()
+$(document).width()
+$(element).width()
+$(element).width(100)
+```
+
+### Standalone usage
+
+```js
+dime.fn.width.call(stack)
+dime.fn.width.call(stack, px)
+```
+
+#### Standalone examples
+
+It is only sensible to use these for *setting* dimensions&mdash;the [statics](#static-methods) are faster for gets.
+
+```js
+dime.fn.width.call([document]) // same as dime.width(document)
+dime.fn.width.call(document.querySelectorAll('.example'), 100)
+```
+
+## [Version](../../releases) notes
+
+#### 3.x is leaner than previous releases
+- 2.x device methods were removed because the native [`screen`](http://ryanve.com/lab/dimensions/#device) provides these.
+- 2.x viewport methods were removed in favor of `dime.width(window)` although those methods 
+are available in [verge](#related-modules).
+- In 3.x `dime` is a plain object&mdash;not a wrapper function.
+
+## Related modules
+
+- [verge](https://github.com/ryanve/verge): viewport utilities
+
+## Resources
+
+- [Lab: dimensions](http://ryanve.com/lab/dimensions/)
+
+## License: [MIT](http://en.wikipedia.org/wiki/MIT_License)
 
 Copyright (C) 2012 by [Ryan Van Etten](https://github.com/ryanve)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
