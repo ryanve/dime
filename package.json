@@ -5,7 +5,7 @@
     "homepage": "https://github.com/ryanve/dime",
     "license": "MIT",
     "author": "Ryan Van Etten",
-    "keywords": ["dimensions", "width", "height", "measure", "nodes", "ender", "browser"],
+    "keywords": ["dimensions", "width", "height", "measure", "ender", "browser"],
     "main": "./dime.js",
     "ender": "./src/ender.js",
     "repository": {
